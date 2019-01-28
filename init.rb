@@ -13,7 +13,6 @@ Redmine::Plugin.register :redmine_startpage do
     'startpage_active' => :false,
     'startpage_project_id'  => '',
     'startpage_controller'  => '',
-    'startpage_project_id'  => '',
     'startpage_action' => '',
     'startpage_id' => '',
     'startpage_argname' => '',
