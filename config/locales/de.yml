@@ -3,6 +3,7 @@ de:
   label_setting_examples: "Konfigurationsbeispiele "
   label_example_url: https://github.com/txinto/redmine_startpage
   label_startpage_active: Aktiv?
+  label_startpage_project_id: Projekt
   label_startpage_controller: Controller
   label_startpage_action: Action
   label_startpage_id: Id

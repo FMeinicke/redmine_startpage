@@ -18,6 +18,12 @@
 			action_to_redirect = nil
 		  else
 			action_to_redirect = Setting.plugin_redmine_startpage['startpage_action']
+			end	
+				
+		  if (Setting.plugin_redmine_startpage['startpage_project_id'].blank?)
+			project_id_to_redirect = nil
+		  else
+			project_id_to_redirect = Setting.plugin_redmine_startpage['startpage_project_id']
 		  end
 		
 		  if (Setting.plugin_redmine_startpage['startpage_id'].blank?)
@@ -35,19 +41,37 @@
 			argvalue_to_redirect = Setting.plugin_redmine_startpage['startpage_argvalue']
 		  end
 		
-		  if (argname_to_redirect.nil?) 
-			redirect_to(
-			  :controller => Setting.plugin_redmine_startpage['startpage_controller'],
-			  :action => action_to_redirect,
-			  :id => id_to_redirect)
-		  else
-			redirect_to(
-			  :controller => Setting.plugin_redmine_startpage['startpage_controller'],
-			  :action => action_to_redirect,
-			  :id => id_to_redirect,
-			  argname_to_redirect => argvalue_to_redirect
-			)
-		  end
+			if (argname_to_redirect.nil?) 
+				if (project_id_to_redirect.nil?)
+				redirect_to(
+					:controller => Setting.plugin_redmine_startpage['startpage_controller'],
+					:action => action_to_redirect,
+					:id => id_to_redirect)
+				else
+				redirect_to(
+					:project_id => project_id_to_redirect,
+					:controller => Setting.plugin_redmine_startpage['startpage_controller'],
+					:action => action_to_redirect,
+					:id => id_to_redirect)
+				end
+			else
+				if (project_id_to_redirect.nil?)
+				redirect_to(
+					:controller => Setting.plugin_redmine_startpage['startpage_controller'],
+					:action => action_to_redirect,
+					:id => id_to_redirect,
+					argname_to_redirect => argvalue_to_redirect
+				)
+				else
+				redirect_to(
+					:project_id => project_id_to_redirect,
+					:controller => Setting.plugin_redmine_startpage['startpage_controller'],
+					:action => action_to_redirect,
+					:id => id_to_redirect,
+					argname_to_redirect => argvalue_to_redirect
+				)
+				end
+			end
 		end
 	  end
 	end
