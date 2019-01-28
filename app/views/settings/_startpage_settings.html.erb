@@ -11,6 +11,10 @@
   <%= text_field_tag 'settings[startpage_controller]', @settings['startpage_controller'] %>
 </p>
 <p>
+  <label><%= l(:label_startpage_project_id) %></label>
+  <%= text_field_tag 'settings[startpage_project_id]', @settings['startpage_project_id'] %>
+</p>
+<p>
   <label><%= l(:label_startpage_action) %></label>
   <%= text_field_tag 'settings[startpage_action]', @settings['startpage_action'] %>
 </p>
